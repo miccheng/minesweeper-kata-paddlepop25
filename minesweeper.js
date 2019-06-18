@@ -1,7 +1,5 @@
 function mineSweeper(cols, rows, mines) {
-  if (cols === 0 || rows === 0) {
-    return [];
-  }
+  if (cols === 0 || rows === 0) return [];
 
   // Get empty board
   let board = setEmptyBoard(cols, rows)
@@ -19,7 +17,6 @@ function mineSweeper(cols, rows, mines) {
           [j-1, i],             [j+1, i],
           [j-1, i+1], [j, i+1], [j+1, i+1]
         ]
-
         neighbours.forEach(([thisCol, thisRow]) => {
           if (board[thisRow] &&
               Number.isInteger(board[thisRow][thisCol])) {
@@ -51,7 +48,5 @@ function setEmptyBoard(cols, rows) {
 function isThereAMine(mines, col, row) {
   return mines[row] && mines[row].charAt(col) === '*'
 }
-
-
 
 export default mineSweeper
